@@ -1,0 +1,9 @@
+﻿@page
+@model reporte.Pages.DesignerModel
+
+<link rel="stylesheet" href="~/css/reporting.designer.part.bundle.css" />
+<script src="~/js/reporting.designer.part.bundle.js"></script>
+
+@(Html.DevExpress().ReportDesigner("reportDesigner")
+    .Height("1000px")
+        .Bind(new Reports.XtraReport2()))
