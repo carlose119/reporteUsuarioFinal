@@ -1,0 +1,45 @@
+﻿@page
+@model reporte.Pages.DesignerSpParamJSModel
+
+@* <script type="text/javascript">
+    function OnClick() {
+        var reportName = "Productos";
+        var paramName = "nombre_estado";
+        var paramValue = document.getElementById("paramValueField").value;
+        var paramQueryString = paramName + '=' + paramValue;
+
+        DocumentViewer.OpenReport(reportName + "?" + paramQueryString);
+    }
+</script>
+
+<input id="paramValueField" type="text" />
+
+<button onclick="OnClick()" type="button">Submit</button>
+
+@{
+    var viewerRender = Html.DevExpress().WebDocumentViewer("DocumentViewer")
+        .Height("1000px")
+        .Bind("Productos");
+    @viewerRender.RenderHtml()
+} *@
+
+@* @Html.DevExpress().WebDocumentViewer("DocumentViewer").Height("1000px").Bind("Carlos_Report") *@
+
+@* @Html.DevExpress().WebDocumentViewer("DocumentViewer").Height("1000px").Bind("Productos") *@
+
+@{
+    var viewerRender = Html.DevExpress().WebDocumentViewer("DocumentViewer")
+        .Height("1000px")
+        .Bind("Productos?nombreEstado=disponible");
+    @viewerRender.RenderHtml()
+}
+
+@section Scripts {
+    <link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+    <link rel="stylesheet" href="~/css/designer.part.bundle.css" />
+
+    <script src="~/js/viewer.part.bundle.js"></script>
+    <script src="~/js/designer.part.bundle.js"></script>
+
+    @viewerRender.RenderScripts()
+}

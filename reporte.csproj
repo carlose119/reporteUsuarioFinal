@@ -17,4 +17,12 @@
 
     <ProjectExtensions><VisualStudio><UserProperties TemplateFeatures="NETCORE" /></VisualStudio></ProjectExtensions>
 
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Pages\DesignerSpParamJS.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\DesignerSpParamJS.cshtml" />
+    </ItemGroup>
+
 </Project>

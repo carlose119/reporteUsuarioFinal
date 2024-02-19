@@ -1,5 +1,5 @@
 ﻿@page
-@model reporte.Pages.DesignerModel
+@model reporte.Pages.DesignerSPModel
 
 <link rel="stylesheet" href="~/css/reporting.designer.part.bundle.css" />
 <script src="~/js/reporting.designer.part.bundle.js"></script>
@@ -7,3 +7,9 @@
 @(Html.DevExpress().ReportDesigner("reportDesigner")
     .Height("1000px")
         .Bind(new Reports.XtraReport2()))
+
+@* @{
+    Reports.XtraReport2 report = new Reports.XtraReport2();
+    report.Parameters["nombre_estado"].Value = "disponible";
+    @Html.DevExpress().WebDocumentViewer("DocumentViewer").Height("1000px").Bind(report)
+} *@

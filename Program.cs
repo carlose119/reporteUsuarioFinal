@@ -1,10 +1,11 @@
 using DevExpress.AspNetCore;
 using DevExpress.AspNetCore.Reporting;
+using DevExpress.XtraCharts;
 using DevExpress.XtraReports.Web.Extensions;
 using Microsoft.EntityFrameworkCore;
 using reporte.Data;
+using reporte.DataSetSp;
 using reporte.Services;
-using static DevExpress.Office.Drawing.LazyGroupBrush;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,11 +14,16 @@ builder.Services
     .AddRazorPages()
     .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 
-// Registre los servicios de informes en el contenedor de inyección de dependencia de la aplicación.
+// Registre los servicios de informes en el contenedor de inyecciï¿½n de dependencia de la aplicaciï¿½n.
 builder.Services.AddDevExpressControls();
-// Registra el almacenamiento después de la llamada al método AddDevExpressControls.
+// Registra el almacenamiento despuï¿½s de la llamada al mï¿½todo AddDevExpressControls.
 builder.Services.AddScoped<ReportStorageWebExtension, CustomReportStorageWebExtension>();
 builder.Services.AddDbContext<ReportDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("ReportsDataConnectionString")));
+
+//registro inyecciï¿½n de dependencia de usar la configuraciï¿½n.
+/* builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+
+builder.Services.AddSingleton<sp>(); */
 
 var app = builder.Build();
 
@@ -37,7 +43,7 @@ using (var scope = app.Services.CreateScope())
     var context = services.GetRequiredService<ReportDbContext>();
     context.Database.EnsureCreated();
     
-    //ejecuta la inserción de datos semillas seeders
+    //ejecuta la inserciï¿½n de datos semillas seeders
     DbInitializer.Initialize(context);
 }
 

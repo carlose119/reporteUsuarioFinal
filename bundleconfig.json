@@ -58,5 +58,28 @@
       "enabled": false
     },
     "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/css/viewer.part.bundle.css",
+    "inputFiles": [
+        "node_modules/@devexpress/analytics-core/dist/css/dx-analytics.common.css",
+        "node_modules/@devexpress/analytics-core/dist/css/dx-analytics.light.css",
+        "node_modules/devexpress-reporting/dist/css/dx-webdocumentviewer.css"
+    ],
+    "minify": {
+      "enabled": false,
+      "adjustRelativePaths": false
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/viewer.part.bundle.js",
+    "inputFiles": [
+      "node_modules/@devexpress/analytics-core/dist/js/dx-analytics-core.min.js",
+      "node_modules/devexpress-reporting/dist/js/dx-webdocumentviewer.min.js"
+      ],
+    "minify": {
+      "enabled": false
+    },
+    "sourceMap": false
   }
 ]
